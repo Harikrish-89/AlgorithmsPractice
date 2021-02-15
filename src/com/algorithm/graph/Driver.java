@@ -13,14 +13,6 @@ import java.util.stream.IntStream;
 public class Driver {
 // Practice for Graph with Collections.
 	public static void main(String[] args) {
-		/*
-		 * Graph<String> graph = new Graph<String>(); graph.addVertex("Bob");
-		 * graph.addVertex("Alice"); graph.addVertex("Mark"); graph.addVertex("Rob");
-		 * graph.addVertex("Maria"); graph.addEdge("Bob", "Alice", false);
-		 * graph.addEdge("Bob", "Rob", false); graph.addEdge("Alice", "Mark", false);
-		 * graph.addEdge("Rob", "Mark", false); graph.addEdge("Alice", "Maria", false);
-		 * graph.addEdge("Rob", "Maria", false); System.out.println(graph);
-		 */
 		int[][] ladders = new int[][] { { 32, 62 }, { 42, 68 }, { 12, 98 } };
 		int[][] snakes = new int[][] { { 95, 13 }, { 97, 25 }, { 93, 37 }, { 79, 27 }, { 75, 19 }, { 49, 47 },
 				{ 67, 17 } };
@@ -105,7 +97,7 @@ public class Driver {
 		Queue<T> queue = new LinkedList<T>();
 		dist.put(source, 0);
 		queue.add(source);
-		visited.add(source);
+		visited.add(source); 
 		while (!queue.isEmpty()) {
 			T vert = queue.poll();
 			g.getAdjVertices(vert).stream().forEach(adjVert -> {
