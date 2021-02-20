@@ -1,3 +1,5 @@
+package com.algorithm.dynamicprogramming;
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
