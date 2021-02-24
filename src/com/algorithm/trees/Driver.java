@@ -8,7 +8,7 @@ public class Driver {
 		bst.add(25);
 		System.out.println(bst);
 		System.out.println(bst.search(20));
-		System.out.println(bst.remove(20));
+		bst.remove(20);
 		System.out.println(bst);
 	}
 }

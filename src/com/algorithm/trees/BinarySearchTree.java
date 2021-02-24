@@ -45,13 +45,38 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return null;
 	}
 
-	public boolean remove(T element) {
-		Node<T> node = search(element);
-		if (node != null) {
-			node = null;
-			return true;
+	public void remove(T element) {
+		root = removeRecursive(root, element);
+	}
+
+	private Node<T> removeRecursive(Node<T> current, T element) {
+		if (current == null) {
+			return null;
 		}
-		return false;
+		if (element.compareTo(current.getKey()) > 0) {
+			current.setRight(removeRecursive(current.getRight(), element));
+		} else if (element.compareTo(current.getKey()) < 0) {
+			current.setLeft(removeRecursive(current.getLeft(), element));
+		} else if (element.compareTo(current.getKey()) == 0) {
+			if (current.getLeft() == null && current.getRight() == null) {
+				return null;
+			}
+			if (current.getLeft() == null) {
+				return current.getRight();
+			}
+			if (current.getRight() == null) {
+				return current.getLeft();
+			}
+			T minValue = findMinValue(current.getRight());
+			current.setKey(minValue);
+			current.setRight(removeRecursive(current.getRight(), minValue));
+		}
+
+		return root;
+	}
+
+	private T findMinValue(Node<T> current) {
+		return current.getLeft() == null ? current.getKey() : findMinValue(current.getLeft());
 	}
 
 }
