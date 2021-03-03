@@ -1,5 +1,8 @@
 package com.algorithm.trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree<T extends Comparable<T>> {
 
 	private Node<T> root;
@@ -73,6 +76,50 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 
 		return root;
+	}
+
+	// Depth first search
+	// in order traversal
+	public void traverseInOrder(Node<T> node) {
+		if (node != null) {
+			traverseInOrder(node.getLeft());
+			System.out.println(node.getKey());
+			traverseInOrder(node.getRight());
+		}
+
+	}
+
+	public void traversePreOrder(Node<T> node) {
+		if (node != null) {
+			System.out.println(node.getKey());
+			traversePreOrder(node.getLeft());
+			traversePreOrder(node.getRight());
+		}
+	}
+
+	public void traversePostOrder(Node<T> node) {
+		if (node != null) {
+			traversePreOrder(node.getLeft());
+			traversePreOrder(node.getRight());
+			System.out.println(node.getKey());
+		}
+	}
+
+	public void levelOrderTraversalOrBFS() {
+		Node<T> current = root;
+		Queue<Node<T>> queue = new LinkedList<Node<T>>();
+		queue.add(current);
+
+		while (!queue.isEmpty()) {
+			current = queue.remove();
+			System.out.println(current.getKey());
+			if (current.getLeft() != null) {
+				queue.add(current.getLeft());
+			}
+			if (current.getRight() != null) {
+				queue.add(current.getRight());
+			}
+		}
 	}
 
 	private T findMinValue(Node<T> current) {
