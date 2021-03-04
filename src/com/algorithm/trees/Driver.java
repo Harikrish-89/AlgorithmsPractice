@@ -10,10 +10,11 @@ public class Driver {
 		bst.add(22);
 		System.out.println(bst);
 		System.out.println(bst.search(20));
-		/*
-		 * bst.traverseInOrder(bst.search(1)); bst.traversePreOrder(bst.search(1));
-		 * bst.traversePostOrder(bst.search(1));
-		 */
-		bst.levelOrderTraversalOrBFS();
+		
+		 bst.traverseInOrder(bst.search(1)); 
+		 // bst.traversePreOrder(bst.search(1));
+		  //bst.traversePostOrder(bst.search(1));
+		 
+		//bst.traversePreOrder(bst.search(1));
 	}
 }
