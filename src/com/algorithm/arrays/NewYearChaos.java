@@ -6,6 +6,7 @@ public class NewYearChaos {
 
 	public static void main(String[] args) {
 		int[] q = { 1, 2, 5, 3, 4, 7, 8, 6 };
+		//{1,2,3,4,5,6,7,8}
 
 		int bribes = 0;
 		for (int i = q.length - 1; i >= 0; i--) {

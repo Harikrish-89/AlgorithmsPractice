@@ -8,6 +8,7 @@ public class FirstNonRepeatingCharacter {
 	public static void main(String[] args) {
 		String s = "loveleetcode";
 		System.out.println(findChar(s));
+		
 	}
 
 	private static int findChar(String s) {
