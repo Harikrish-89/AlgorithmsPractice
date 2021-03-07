@@ -12,6 +12,7 @@ public class Driver {
 		System.out.println(bst.search(20));
 		
 		 bst.traverseInOrder(bst.search(1)); 
+		 System.out.println(bst.findHeightOfTree());
 		 // bst.traversePreOrder(bst.search(1));
 		  //bst.traversePostOrder(bst.search(1));
 		 

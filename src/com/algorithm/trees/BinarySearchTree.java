@@ -104,7 +104,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			System.out.println(node.getKey());
 		}
 	}
-	
 
 	public void levelOrderTraversalOrBFS() {
 		Node<T> current = root;
@@ -125,6 +124,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
 	private T findMinValue(Node<T> current) {
 		return current.getLeft() == null ? current.getKey() : findMinValue(current.getLeft());
+	}
+
+	public int findHeightOfTree() {
+		return calcualteHeight(root);
+	}
+
+	private int calcualteHeight(Node<T> current) {
+		if (current == null) {
+			return 0;
+		}
+		int ltHeight = calcualteHeight(current.getLeft());
+		int rtHeight = calcualteHeight(current.getRight());
+		return Math.max(ltHeight, rtHeight) + 1;
 	}
 
 }
