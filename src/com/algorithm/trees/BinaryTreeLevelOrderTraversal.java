@@ -17,7 +17,7 @@ public class BinaryTreeLevelOrderTraversal {
 		bfs(root);
 	}
 
-	private static void bfs(TreeNode root) {
+	public static void bfs(TreeNode root) {
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		List<List<Integer>> layerVals =  new ArrayList<List<Integer>>();
 		if(root == null) {

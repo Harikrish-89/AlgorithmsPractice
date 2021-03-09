@@ -4,18 +4,17 @@ import java.io.IOException;
 
 public class MaxSubsetSum {
 
-    // Complete the maxSubsetSum function below.
-    static int maxSubsetSum(int[] arr) {
-        int[] trackMaxSums = new int[arr.length + 1];
-        trackMaxSums[0] = arr[0];
-        trackMaxSums[1] = Math.max(arr[0], arr[1]);
-        for (int i = 2; i < arr.length; i++) {
-            trackMaxSums[i] = Math.max(Math.max(trackMaxSums[i - 1], arr[i]), arr[i] + trackMaxSums[i - 2]);
-        }
-        return trackMaxSums[arr.length];
-    };
+	// Complete the maxSubsetSum function below.
+	static int maxSubsetSum(int[] nums) {
+		int n = nums.length, maxSum = nums[0];
+	    for(int i = 1; i < n; ++i) {
+	      if (nums[i - 1] > 0) nums[i] += nums[i - 1];
+	      maxSum = Math.max(nums[i], maxSum);
+	    }
+	    return maxSum;
+	};
 
-    public static void main(String[] args) throws IOException {
-        maxSubsetSum(new int[] { 2, 1, -5, 8, 4, 7, -8, 10, 9 });
-    }
+	public static void main(String[] args) throws IOException {
+		System.out.println(maxSubsetSum(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }));
+	}
 }
