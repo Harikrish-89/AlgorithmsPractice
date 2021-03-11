@@ -1,22 +1,21 @@
 package com.algorithm.arrays;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class EqualSidesArrays {
 	public static void main(String[] args) {
-		int[] array = {1,2,3,4,3,2,1};
-		int[] trackSum = new int[array.length];
-		int totalSum =  Arrays.stream(array).sum();
-		int index = 0;
-		trackSum[0] = array[0];
-		for(int i=1; i< array.length; i++) {
-			trackSum[i] = trackSum[i-1] + array[i];
-			if(trackSum[i] == totalSum - trackSum[i]) {
-				i = index;
-				break;
+		int[] array = { 20, 10, -80, 10, 10, 15, 35 };
+		for (int i = 0; i < array.length; i++) {
+			int[] left = Arrays.copyOfRange(array, 0, i);
+			int[] right = Arrays.copyOfRange(array, i + 1, array.length);
+			if (getSum(left) == getSum(right)) {
+				System.out.println(i);
+				return;
 			}
 		}
-		System.out.println(index);
+	}
+
+	public static int getSum(int[] array) {
+		return Arrays.stream(array).sum();
 	}
 }
