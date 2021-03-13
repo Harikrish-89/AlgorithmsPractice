@@ -6,6 +6,7 @@ public class RotateArray {
 		int k = 3;
 		int[] rotated = new int[nums.length];
 		for (int i = 0; i < nums.length; i++) {
+			System.out.println((i+k) % nums.length);
             rotated[(i + k) % nums.length] = nums[i];
         }
 		for(int i=0; i<nums.length; i++) {
