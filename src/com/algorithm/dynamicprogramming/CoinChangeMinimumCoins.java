@@ -9,15 +9,12 @@ public class CoinChangeMinimumCoins {
 		int[] dp = new int[amount + 1];
 		Arrays.fill(dp, amount+1);
 		dp[0] = 0;
-		for (int i = 0; i < coins.length; i++) {
+		for (int i =0; i < coins.length; i++) {
 			int currentCoin = coins[i];
-			for (int j = 1; j < dp.length; j++) {
-				if (j >= currentCoin) {
-					int noOfCurrentCoin = j / currentCoin;
-					int balance = j % currentCoin;
-					int totalCoins = noOfCurrentCoin + dp[balance];
-					dp[j] = Math.min(dp[j], totalCoins);
-				}
+			for (int j =1; j <= amount; j++) {
+				if(j >= currentCoin){
+                    dp[j] = Math.min(dp[j], dp[j - currentCoin] + 1);
+                }
 			}
 		}
 		System.out.println(dp[amount]);
