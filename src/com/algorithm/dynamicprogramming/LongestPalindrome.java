@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class LongestPalindrome {
 
 	public static void main(String[] args) {
-		String s = "abb";
+		String s = "babad";
 		
 		System.out.println(IntStream.range(0, s.length()).mapToObj(i -> {
 			String s1 = checkAndGetPlaindromeAround(s, i, i);
