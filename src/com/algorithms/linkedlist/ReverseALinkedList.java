@@ -1,9 +1,5 @@
 package com.algorithms.linkedlist;
 
-import java.util.LinkedList;
-
-import org.graalvm.compiler.core.common.util.ReversedList;
-
 public class ReverseALinkedList {
 
 	public static void main(String[] args) {
