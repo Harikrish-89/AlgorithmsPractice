@@ -38,10 +38,10 @@ public class BinaryTreeLevelOrderTraversal {
 				layerVals.get(level).add( current != null ? current.val : null);
 					
 			}
-			if(!verifyIsSymmentric(layerVals.get(level))) {
-				System.out.println(false);
-				return;
-			}
+			/*
+			 * if(!verifyIsSymmentric(layerVals.get(level))) { System.out.println(false);
+			 * return; }
+			 */
 			level++;
 		}
 		System.out.println(level);

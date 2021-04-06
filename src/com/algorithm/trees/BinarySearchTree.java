@@ -1,6 +1,11 @@
 package com.algorithm.trees;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class BinarySearchTree<T extends Comparable<T>> {
@@ -89,6 +94,21 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
 	}
 
+	public void traverseInOrderIterative(Node<T> node) {
+		Deque<Node<T>> stack = new ArrayDeque<Node<T>>();
+		Node<T> current = node;
+		while (current != null || !stack.isEmpty()) {
+			while (current != null) {
+				stack.push(current);
+				current = current.getLeft();
+			}
+			current = stack.pop();
+			System.out.println(current.getKey());
+			current = current.getRight();
+		}
+
+	}
+
 	public void traversePreOrder(Node<T> node) {
 		if (node != null) {
 			System.out.println(node.getKey());
@@ -120,6 +140,31 @@ public class BinarySearchTree<T extends Comparable<T>> {
 				queue.add(current.getRight());
 			}
 		}
+	}
+	
+	public void zigZagLevelOrder() {
+	        Queue<Node<T>> queue = new LinkedList<Node<T>>();
+	        List<List<T>> result = new ArrayList<List<T>>();
+	        if(root == null) return;
+	        
+	        queue.add(root);
+	        boolean reverse = false;
+	        while(!queue.isEmpty()) {
+	            List<T> list = new ArrayList<T>();
+	           int n = queue.size();
+	            for(int i = 0 ; i < n ; i++) {
+	            	Node<T> node = queue.poll();
+	                
+	                list.add(node.getKey());
+	                if(node.getLeft() != null) queue.add(node.getLeft());
+	                if(node.getRight() != null) queue.add(node.getRight());
+	            }
+	           
+	            if(reverse) Collections.reverse(list); 
+	            result.add(list);
+	            reverse = !reverse;
+	        }
+	        System.out.println(result);
 	}
 
 	private T findMinValue(Node<T> current) {
