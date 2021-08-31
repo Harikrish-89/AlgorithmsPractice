@@ -14,5 +14,7 @@ public class DuplicatesInSortedArray {
 			}
 		}
 		Arrays.stream(nums).forEach(elm -> System.out.println(elm));
+		Arrays.stream(nums).distinct().forEach(elm -> System.out.println(elm));
 	}
+
 }
